@@ -9,8 +9,10 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-    async signIn(user, account, profile) {
-      console.log(user, account, profile);
+    async signIn(user) {
+      // const contributorsResponse = await fetch('https://api.github.com/repos/brmodeloweb/brmodelo-app/contributors');
+      // const contributors = await contributorsResponse.json();
+      // return contributors.map(({ login }) => login).includes(user.name);
       return true;
     },
   },
