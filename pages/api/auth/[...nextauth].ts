@@ -1,6 +1,10 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 
+type Redirect = {
+  baseUrl: string
+}
+
 export default NextAuth({
   providers: [
     Providers.GitHub({
@@ -14,6 +18,9 @@ export default NextAuth({
       // const contributors = await contributorsResponse.json();
       // return contributors.map(({ login }) => login).includes(user.name);
       return true;
+    },
+    redirect(url, baseUrl) {
+      return baseUrl
     },
   },
 });
