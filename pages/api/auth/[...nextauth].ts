@@ -1,9 +1,6 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
-
-type Redirect = {
-  baseUrl: string;
-};
+import githubAPI from "../../../services/github";
 
 export default NextAuth({
   pages: {
@@ -17,10 +14,7 @@ export default NextAuth({
   ],
   callbacks: {
     async signIn(user) {
-      const contributorsResponse = await fetch(
-        "https://api.github.com/repos/brmodeloweb/brmodelo-app/contributors"
-      );
-      const contributors = await contributorsResponse.json();
+      const contributors = await githubAPI.getContributors("brmodeloweb/brmodelo-app")
       return contributors.map(({ login }) => login).includes(user.name);
     },
     redirect(_, baseUrl) {

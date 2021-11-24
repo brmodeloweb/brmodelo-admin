@@ -1,7 +1,8 @@
 import Head from "next/head";
-import { getSession, signIn, signOut, useSession } from "next-auth/client";
+import { getSession, signOut } from "next-auth/client";
+import github from "../services/github";
 
-export default function Home({ session }) {
+export default function Home({ user }) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
@@ -10,7 +11,7 @@ export default function Home({ session }) {
       </Head>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1>Signed in as {session.user.name}</h1>
+        <h1>Signed in as {user.login}</h1>
         <button
           onClick={() => {
             signOut();
@@ -36,7 +37,9 @@ export async function getServerSideProps(context) {
     }
   }
 
+  const user = await github.getUser(session.user.name);
+
   return {
-    props: { session }
+    props: { user }
   }
 }

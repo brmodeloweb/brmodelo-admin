@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const backgroundStyle = {
   backgroundImage:
-    "url(https://app.brmodeloweb.com/assets/img/wave01.svg),url(https://app.brmodeloweb.com/assets//img/wave02.svg),url(https://app.brmodeloweb.com/assets//img/wave03.svg);",
-  backgroundRepeat: "repeat-x;",
-  backgroundPosition: "0 100%;",
+    "url(https://app.brmodeloweb.com/assets/img/wave01.svg),url(https://app.brmodeloweb.com/assets//img/wave02.svg),url(https://app.brmodeloweb.com/assets//img/wave03.svg)",
+  backgroundRepeat: "repeat-x",
+  backgroundPosition: "0 100%",
 };
 
 export default function Login() {
