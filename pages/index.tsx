@@ -1,6 +1,7 @@
-import Head from 'next/head'
+import Head from "next/head";
+import { getSession, signIn, signOut, useSession } from "next-auth/client";
 
-export default function Home() {
+export default function Home({ session }) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
@@ -9,13 +10,33 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to Br Modelo Admin
-        </h1>
+        <h1>Signed in as {session.user.name}</h1>
+        <button
+          onClick={() => {
+            signOut();
+          }}
+        >
+          Sign out
+        </button>
       </main>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-      </footer>
+      <footer className="flex items-center justify-center w-full h-24 border-t"></footer>
     </div>
-  )
+  );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/api/auth/signin',
+        permanent: false,
+      },
+    }
+  }
+
+  return {
+    props: { session }
+  }
 }
