@@ -1,16 +1,10 @@
 import { signIn, providers } from "next-auth/client";
 import Image from "next/image";
 
-const backgroundStyle = {
-  backgroundImage:
-    "url(https://app.brmodeloweb.com/assets/img/wave01.svg),url(https://app.brmodeloweb.com/assets//img/wave02.svg),url(https://app.brmodeloweb.com/assets//img/wave03.svg)",
-  backgroundRepeat: "repeat-x",
-  backgroundPosition: "0 100%",
-};
 
 export default function Login() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen py-2" style={backgroundStyle}>
+    <main className="flex flex-col items-center justify-center min-h-screen py-2 bg-login">
       <section className="box-border shadow rounded p-8 h-48 flex flex-col justify-between bg-gray-100">
         <header className="flex items-center">
           <Image

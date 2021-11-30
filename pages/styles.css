@@ -1,0 +1,37 @@
+@tailwind utilities;
+
+@layer utilities {
+  .bg-login {
+    background-image: url("https://app.brmodeloweb.com/c401f5829cea0a50fcce916dd2f36ff3.svg"),
+      url("https://app.brmodeloweb.com/c2500e629e7f6e09eff28b7340523101.svg"),
+      url("https://app.brmodeloweb.com/a039be1301f07dc65c5f8ab65155910b.svg");
+    background-repeat: repeat-x;
+    background-position: 0 100%;
+  }
+  .nav-button::before {
+    content: "";
+    width: 5px;
+    border-radius: 8px;
+    height: 32px;
+    position: absolute;
+    left: 0;
+    @apply bg-green-700;
+  }
+
+  .page-header {
+    background: linear-gradient(
+      180deg,
+      rgba(24, 214, 129, 1) 0%,
+      rgba(61, 153, 112, 1) 100%
+    );
+  }
+
+  .page-header::after {
+    content: "";
+    background-image: url("https://www.brmodeloweb.com/img/wave-site.svg");
+    position: absolute;
+    top: 0;
+    @apply w-full;
+    @apply h-full;
+  }
+}

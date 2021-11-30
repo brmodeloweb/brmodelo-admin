@@ -1,13 +1,12 @@
-import Head from "next/head";
-import { getSession, signOut } from "next-auth/client";
-import github from "../services/github";
-import NavBar from "../components/navbar";
-import PageStructure from "../components/pages/page-structure";
+import EmptyPage from "../../components/pages/empty-page";
+import PageStructure from "../../components/pages/page-structure";
+import { getSession } from "next-auth/client";
+import github from "../../services/github";
 
-export default function Home({ user }) {
+export default function Users({ user }) {
   return (
-    <PageStructure user={user} title="Dashboard">
-      2
+    <PageStructure user={user} title="Users">
+      <EmptyPage />
     </PageStructure>
   );
 }
