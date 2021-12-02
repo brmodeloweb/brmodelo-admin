@@ -1,13 +1,14 @@
-import Head from "next/head";
-import { getSession, signOut } from "next-auth/client";
+import { getSession } from "next-auth/client";
 import github from "../services/github";
-import NavBar from "../components/navbar";
 import PageStructure from "../components/pages/page-structure";
+import MainStats from "../components/stats/main-stats";
 
 export default function Home({ user }) {
   return (
     <PageStructure user={user} title="Dashboard">
-      2
+      <section className="relative bg-gray-50 page-content">
+        <MainStats />
+      </section>
     </PageStructure>
   );
 }

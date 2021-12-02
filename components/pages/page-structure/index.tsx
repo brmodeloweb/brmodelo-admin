@@ -11,7 +11,7 @@ export default function PageStructure({ user, title, children }) {
       </Head>
       <main className="flex">
         <NavBar user={user} />
-        <section className="border w-full">
+        <section className="w-full">
           <PageHeader title={title} />
           {children}
         </section>

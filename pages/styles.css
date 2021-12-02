@@ -34,4 +34,8 @@
     @apply w-full;
     @apply h-full;
   }
+
+  .page-content {
+    height: calc(100vh - 210px);
+  }
 }

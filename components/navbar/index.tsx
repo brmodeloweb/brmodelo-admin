@@ -4,7 +4,7 @@ import UserAvatar from "../user-avatar";
 import { HiTemplate, HiUserGroup, HiFolderOpen } from "react-icons/hi";
 
 function NavBar({ user }) {
-  return <section className="min-h-screen flex flex-col py-4 px-2 items-center">
+  return <section className="min-h-screen flex flex-col py-4 px-2 items-center border-r">
     <UserAvatar avatarUrl={user.avatar_url} />
     <nav className="mt-12 flex flex-col h-full">
       <NavButton path="/">
